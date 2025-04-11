@@ -1,9 +1,8 @@
 # Refermii
 
-A new project repository.
 
 ## Description
-This repository contains the Refermii project.
+This repository contains the Refermii project. test
 
 ## Getting Started
 Instructions for setting up and running the project will be added here.
