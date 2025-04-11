@@ -1,62 +1,13 @@
-name: CI/CD Pipeline
+name: Simple Test
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18.x'
-        cache: 'npm'
-    
-    - name: Install dependencies
-      run: npm install
-      
-    - name: Run linting
-      run: npm run lint
-      
-    - name: Run tests
-      run: npm test
-      
-    - name: Build
-      run: npm run build
-
-  deploy-staging:
-    needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-    environment:
-      name: staging
-      url: https://staging.refermii.com # Replace with your staging URL
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Deploy to staging
-      run: echo "Deploy to staging environment"
-      # Add your deployment commands here
-
-  deploy-production:
-    needs: deploy-staging
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: https://refermii.com # Replace with your production URL
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Deploy to production
-      run: echo "Deploy to production environment"
-      # Add your deployment commands here 
+      - uses: actions/checkout@v3
+      - name: Test Step
+        run: echo "Hello, GitHub Actions!"
