@@ -1,0 +1,49 @@
+/* src/components/Footer.css */
+.footer {
+    background-color: var(--card-bg);
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer p {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.footer-links {
+    display: flex;
+}
+
+.footer-link {
+    color: var(--text-color);
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        margin-top: 10px;
+    }
+
+    .footer-link {
+        margin: 0 10px;
+    }
+}

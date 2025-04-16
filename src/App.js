@@ -1,52 +1,30 @@
+// src/App.js
 import React, { useState } from 'react';
-import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
-import ReferralList from './components/ReferralList';
-import PostForm from './components/PostForm';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#1976d2',
-    },
-    secondary: {
-      main: '#dc004e',
-    },
-  },
-});
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './pages/Home';
+import AddReferral from './pages/AddReferral';
+import Footer from './components/Footer';
+import { ThemeProvider } from './context/ThemeContext';
+import './App.css';
 
 function App() {
-  const [referrals, setReferrals] = useState([
-    {
-      id: 1,
-      brand: 'Amazon',
-      code: 'AMAZON2023',
-      link: 'https://amazon.com/referral',
-      postDate: '2023-04-10',
-      tags: ['shopping', 'retail', 'prime'],
-    },
-    {
-      id: 2,
-      brand: 'Uber',
-      code: 'UBER2023',
-      link: 'https://uber.com/referral',
-      postDate: '2023-04-09',
-      tags: ['transportation', 'ride-sharing'],
-    },
-  ]);
-
-  const handleSubmitReferral = (newReferral) => {
-    setReferrals(prev => [...prev, { ...newReferral, id: Date.now() }]);
-  };
-
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container maxWidth="lg">
-        <ReferralList referrals={referrals} />
-        <PostForm onSubmit={handleSubmitReferral} />
-      </Container>
+    <ThemeProvider>
+      <Router>
+        <div className="app">
+          <Header />
+          <main className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/add" element={<AddReferral />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
     </ThemeProvider>
   );
 }
 
-export default App; 
+export default App;

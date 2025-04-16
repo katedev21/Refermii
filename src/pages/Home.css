@@ -1,0 +1,81 @@
+/* src/pages/Home.css */
+.hero-section {
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 30px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.hero-section h2 {
+    color: var(--primary-color);
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 18px;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.filters-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+.search-box {
+    flex: 1;
+}
+
+.brand-filter {
+    width: 200px;
+}
+
+.referrals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.loading-message,
+.error-message,
+.no-results {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    grid-column: 1 / -1;
+}
+
+.loading-message {
+    color: var(--text-color);
+}
+
+.error-message {
+    color: var(--error-color);
+}
+
+.no-results {
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .filters-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .brand-filter {
+        width: 100%;
+    }
+
+    .referrals-grid {
+        grid-template-columns: 1fr;
+    }
+}
